@@ -1,0 +1,63 @@
+
+main{
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.auth-reg-container{
+  color: #646E7A;
+  font-size: 10px;
+  text-transform: uppercase;
+  width: fit-content;
+  letter-spacing: .2em;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 25px 0;
+  margin: 0;
+}
+
+.auth-reg-container p:nth-child(2){
+  font-size: 25px;
+}
+
+.auth-reg-container p:not(p:nth-child(2)){
+  padding: 5px;
+  cursor: pointer;
+}
+
+.focus{
+  border: 2px #5F8CFF solid;
+}
+
+form{
+  margin: 30px auto;
+}
+
+::placeholder{
+  font-style: italic;
+}
+
+.form-input{
+  font-size: 13px;
+  color: #646e7a;
+  border: 0;
+  border-bottom: 1px solid #9ea7b2 ;
+  padding-left: 5px;
+  padding-bottom: 7px;
+  margin-bottom: 30px;
+  width: 80%;
+}
+
+.form-submit{
+  font-family: semicomoon;
+  border-radius: 50%;
+  border: 1.5px #646E7A solid;
+  color: #646E7A;
+  background-color: white;
+  padding: 0 5px;
+  cursor: pointer;
+}
+

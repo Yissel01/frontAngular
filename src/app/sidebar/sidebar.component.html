@@ -1,0 +1,52 @@
+<!-- NOTA:[ngStyle]
+        Es para dar estilos dada una condicion que si se cumple se le da un estilo sino se le da otro, un ejemplo de uso seria:
+        [ngStyle]="{'width': isOpen ? '230px' : '70px', 'background-color' : isOpen ? 'red' : 'yellow'}"
+        obviamente usandose dentro de una etiqueta html la sintaxis vendria dada por
+        "{'propiedadCSS' : condicion ? 'valor_si_se_cumple' : 'valor_si_no_se_cumple'}"
+        eso seria para una sola propiedad si se desea agregar otra propiedad se pone una coma despues del valor de si no se cumple
+        y se repite con otra propiedad
+-->
+<!-- NOTA:[ngClass]
+        Funciona parecido al [ngStyle] pero en vez de para aplicar un estilo y otro se usa para aplicar una clase o no dada una
+        condicion, un ejemplo seria: "{'active': route ==='website'}" ; la sintaxis viene dada por:
+        "{'nombre_de_la_clase': condicion}"
+        de igual forma se puede agregar otra clase ponindo una coma despues de la condicion
+-->
+
+
+<div class="sidebar"   [ngStyle]="{'width': isOpen ? '230px' : '70px'}">
+
+  <!-- Ocurre si el sidebar que es la barra de navegacion de la izquierda esta abierta, es decir la variable isOpen = true -->
+  @if(isOpen){
+    <div class="open-seo-icon" >
+      <app-seo-icon  ></app-seo-icon>
+    </div>
+
+    <div (click)="web('website')"  class="open-option" [ngClass]="{'active': route ==='website'}" >
+      <img  class="open-img" src="../../assets/img/website.svg" alt="Sitios web">
+      <span class="open-span">Sitios web</span>
+    </div>
+
+  <!-- Ocurre si el sidebar que es la barra de navegacion de la izquierda esta cerrada, es decir la variable isOpen = false -->
+  }@else {
+
+    <div class="close-seo-icon">
+      <img title="seowebmasicon" width ='50' height='50' src="../../assets/img/white_seowebmas.png" />
+    </div>
+
+    <div class="close-option" routerLink="website" routerLinkActive="active" ariaCurrentWhenActive="page" [ngClass]="{'active': route ==='website'}" >
+        <img  class="close-img" src="../../assets/img/website.svg" alt="Sitios web">
+        <p  class="close-p">Sitios web</p>
+    </div>
+    <!-- <div (click)="web('website')" class="close-option" [ngClass]="{'active': route ==='website'}" >
+      <img  class="close-img" src="../../assets/img/website.svg" alt="Sitios web">
+      <p  class="close-p">Sitios web</p>
+    </div> -->
+
+  }
+
+  <p (click)="web('dos')" [ngClass]="{'active': route ==='dos'}" style="padding: 10px;">icono 2</p>
+  <p (click)="web('tres')" [ngClass]="{'active': route ==='tres'}" style="padding: 10px;">icono 3</p>
+
+</div>
+

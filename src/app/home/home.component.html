@@ -1,0 +1,34 @@
+
+<aside >
+  <app-sidebar #sidebar [isOpen]="navbar.isOpen"></app-sidebar>
+</aside>
+
+<div  class=" body"  [ngStyle]="{'margin-left': navbar.isOpen ? '230px' : '70px'}" >
+
+    <nav >
+      <app-navbar #navbar></app-navbar>
+    </nav>
+
+    <section >
+
+      <!-- @if(sidebar.route == 'website'){
+        <app-web-site></app-web-site>
+      } -->
+
+      <router-outlet ></router-outlet>
+    </section>
+
+    <footer>
+      <div >
+        <span>Copyright &copy; 2024 </span>
+        <a rel="noopener" href="http://www.uci.cu" target="_blank">Universidad de las Ciencias Informáticas</a>
+        <span> Todos los derechos reservados.</span>
+      </div>
+    </footer>
+
+  </div>
+
+
+
+
+

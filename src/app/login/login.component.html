@@ -1,0 +1,64 @@
+
+<header style="scale: 0.7; padding-top: 80px ;">
+  <app-seo-icon></app-seo-icon>
+</header>
+
+<main >
+
+  <div class="auth-reg-container " >
+    <p class="focus">Autenticarse </p>
+    <p>|</p>
+    <p>Registrarse</p>
+  </div>
+
+
+
+  <form  (ngSubmit)="onSubmit()" >
+    <div>
+      <input class="form-input" type="text" name="name" placeholder="usuario" >
+    </div>
+    <div>
+      <input class="form-input" type="password" name="pass" placeholder="contraseña" >
+    </div>
+    <div style="text-align: center;">
+      <input class="form-submit paddin" type="submit" value="&gt;">
+    </div>
+  </form>
+
+
+  <div style="color: #5F8CFF; font-size: 12px; font-family: Arial, Helvetica, sans-serif;">
+    <p>Olvidé mi contraseña</p>
+  </div>
+
+</main>
+
+
+<router-outlet><router-outlet />
+
+<!-- <section class="borde">
+
+  @if(log){
+
+    <p> Hola {{username}} </p>
+
+    <img (click)="greet()" alt="photo" src="https://github.com/lacho06.png" />
+  }@else{
+
+    <p>Inicia sesion</p>
+<button (click)="log = true"> Autenticar </button>
+  }
+
+
+  <ul>
+    @for (dato of variosdatos; track dato.id){
+      <li>
+        {{dato.name}}
+      </li>
+    }
+  </ul>
+
+</section>
+
+
+
+<app-borrar username="{{username}}"></app-borrar> -->

@@ -1,0 +1,46 @@
+
+
+.body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+
+nav {
+border-bottom: 1px #D9DEE4 solid;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+section {
+  flex-grow: 1;
+  background-color: #F7F7F7;
+}
+
+
+footer{
+  /* float: end; */
+  text-align: end;
+  color: #73879C;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover {
+  color: #23527C;
+  cursor: pointer;
+}
+
+a:visited{
+  color: #23527C;
+
+}

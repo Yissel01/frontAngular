@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+/* Estilos globales para todos los componentes */
+@font-face {
+  font-family: semicomoon;
+  src: url(./assets/fonts/semicomoon.ttf);
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+/* color-scheme: ligth dark; */
+}
+
+body {
+  /* min-height: 100vh; */
+}
+
+.borde{
+  border: 2px solid black;
+}
