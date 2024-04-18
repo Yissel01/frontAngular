@@ -1,0 +1,21 @@
+.migas{
+  padding: 1.5rem;
+  color: #777777;
+}
+
+.title{
+  margin: .5rem 0 4rem;
+  border-top: 1px solid #D9DEE4;
+  border-bottom: 1px solid #D9DEE4;
+  padding: 1rem 2rem;
+  color: #707070;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.table-container{
+  margin: 0 auto;
+  width: 95%;
+  }

@@ -1,3 +1,7 @@
+header{
+  scale: 0.7;
+  padding-top: 80px ;
+}
 
 main{
   width: fit-content;
@@ -61,3 +65,8 @@ form{
   cursor: pointer;
 }
 
+.forgot-pass{
+  color: #5F8CFF;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}

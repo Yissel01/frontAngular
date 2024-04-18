@@ -13,4 +13,14 @@
 
    <at-pagination at-list="list" at-config="config"></at-pagination> -->
 <!-- </table> -->
-<p>paaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+<div class="migas">
+  <p>{{pageTitle}}</p>
+</div>
+<div class="title">
+  <img width="20" height="20" src="../../assets/img/menu_.svg" alt="Sitios web">
+  <span>{{pageTitle.toUpperCase()}}</span>
+</div>
+<div class="table-container">
+  <app-table [colTitles]="titles" [rowContent]="data"/>
+</div>
+

@@ -14,18 +14,23 @@ export class BorrarComponent {
   @Input() username = '';
   @Output() lolo = 'hola lolo';
 
+// public user$!: Observable<User>;
 
- 
+// username = new FormControl('');
+// pass = new FormControl('');
 
+// console.log(this.login.value['username']);
+  // this.user$=this.service.verifyUser();
 
-  variosdatos = [
+// console.log('Datos del formulario:', formData['username']);
+
+ variosdatos = [
     {
       id:1,
       name: 'uno'
     },
     {
       id : 2,
-
       name : 'dos'
     },
     {

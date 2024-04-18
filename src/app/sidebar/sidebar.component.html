@@ -34,7 +34,7 @@
       <img title="seowebmasicon" width ='50' height='50' src="../../assets/img/white_seowebmas.png" />
     </div>
 
-    <div class="close-option" routerLink="website" routerLinkActive="active" ariaCurrentWhenActive="page" [ngClass]="{'active': route ==='website'}" >
+    <div (click)="web('website')" class="close-option" routerLink="website" routerLinkActive="active" ariaCurrentWhenActive="page" [ngClass]="{'active': route ==='website'}" >
         <img  class="close-img" src="../../assets/img/website.svg" alt="Sitios web">
         <p  class="close-p">Sitios web</p>
     </div>

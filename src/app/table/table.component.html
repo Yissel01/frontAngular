@@ -1,0 +1,55 @@
+  <!--------------------------- Tabla ------------------------->
+  <table>
+    <!-- titulos -->
+    <thead>
+      <tr>
+        <th *ngFor="let title of colTitles">{{ title }}</th>
+      </tr>
+    </thead>
+    <!-- contenido -->
+    <tbody>
+      <!-- <tr *ngFor="let fila of filas"> -->
+        <!-- <tr *ngFor="let row of currentRows"> -->
+        <!-- <td>{{ row.ID }}</td>
+      <td>{{ row.Nombre }}</td>
+      <td>{{ row.Edad }}</td> -->
+        <!-- <td *ngFor="let key of objectKeys(row)">{{ row[key] }}</td> -->
+        <ng-container *ngIf="currentRows.length > 0; else emptyRows">
+        <tr *ngFor="let row of currentRows">
+          <td *ngFor="let key of objectKeys(row)">
+            <ng-container  *ngIf="key === 'html' || key === 'meta'; else notElemento2">
+              <img  style="display: block; margin-left: 2rem; margin-right: auto;" width="20" height="20" *ngIf="row[key] === 1" src="../../assets/img/checked.svg" alt="Imagen para valor 1">
+              <img style="display: block; margin-left: 2rem; margin-right: auto;" width="20" height="20" *ngIf="row[key] === 0" src="../../assets/img/unchecked.svg" alt="Imagen para valor 0">
+            </ng-container>
+            <ng-template #notElemento2>{{ row[key] }}</ng-template>
+        <td style="display: flex; justify-content: center; align-items: center;">
+          <button class="borde boton">Botón 1</button>
+          <button class="borde boton">Botón 2</button>
+          <button class="borde boton">Botón 3</button>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-template #emptyRows>
+      <tr>
+        <td style="text-align: center;" [attr.colspan]="colTitles?.length" >No hay sitios web</td>
+      </tr>
+    </ng-template>
+    </tbody>
+  </table>
+
+  <!--------------------- Paginacion de la tabla ------------------->
+  <div class="pagination">
+    <div >
+      <label for="items">Elementos por página:</label>
+      <select id="items" name="items" [formControl]="items">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+    <div >
+      <button (click)="prevPage()">&laquo;</button>
+      <span> {{ rowContent && rowContent.length === 0 ? 0 : currentPage }} /{{ totalPages }}</span>
+      <button (click)="nextPage()">&raquo;</button>
+    </div>
+  </div>

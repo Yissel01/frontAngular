@@ -1,0 +1,75 @@
+*{
+  color: #707070;
+}
+table {
+  border-collapse: collapse;
+  width:100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+th {
+  border-bottom: 1.5px solid #333; /* Bordes inferiores más oscuros para los títulos */
+}
+
+tr {
+  border-bottom: 1px solid #ccc; /* Bordes inferiores para las filas */
+}
+
+.pagination{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 1rem 3rem;
+}
+
+.pagination div{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  height: 2rem;
+}
+
+.pagination button , .pagination select{
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  width: 2rem;
+  background-color: #fff;
+}
+
+.pagination button:nth-child(1){
+  border-radius: .3rem 0  0 .3rem;
+}
+
+.pagination button:nth-child(3){
+  border-radius: 0 .3rem .3rem 0;
+
+}
+
+.pagination select{
+  width: 4rem;
+  text-align: center;
+}
+
+/* Para el 2do div de .pagination y para el select de .pagination */
+.pagination > div:nth-child(2), .pagination select{
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: .3rem;
+/* Esta sombra no me convence */
+  box-shadow: 0 1px 0 1px #202a62a5;
+  }
+
+
+.boton{
+  padding: .2rem .5rem;
+  width: 5rem;
+  border-radius: .3rem;
+  border: 1px solid #aaa;
+}
+
+

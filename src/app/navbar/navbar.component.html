@@ -2,7 +2,7 @@
 <div class="navbar-container"  >
 
   <div class="left">
-    <img style="width: 25px; height: 25px;" (click)="toggle()"  src="../../assets/img/menu.svg" alt="Menu">
+    <img width="25" height="25" (click)="toggle()"  src="../../assets/img/menu.svg" alt="Menu">
   </div>
 
   <div class="right">
@@ -21,15 +21,11 @@
         <li>hola bb</li>
         <li (click)="logout()">
           <p>Cerrar sesión</p>
-          <img width="20" height="20" src="../../assets/img/logout.svg" />
+          <img title="logout" (click)="logout()" width="20" height="20" src="../../assets/img/logout.svg" />
         </li>
       </ul>
-
     </div>
   </div>
-
-
-
 
 </div>
 
