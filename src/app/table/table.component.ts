@@ -1,17 +1,36 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input} from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from '../modal/modal.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { HttpService } from '../core/services/http.service';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ModalComponent, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
 export class TableComponent{
+  @Input() tableTitle!: String;
   @Input() colTitles: string[] | undefined; //titulos de las columnas
-  @Input() rowContent!: any[] | undefined; //contenidos por filas, cada elemento del array es una fila
+  @Input() rowContent!: any[]; //contenidos por filas, cada elemento del array es una fila
+
+  modalOpen = false;
+  id!:string;
+  url!:string;
+
+  openModal(key:string, url:string) {
+    this.id = key;
+    this.url=url;
+    this.modalOpen = true;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
+  }
+
 
   objectKeys = Object.keys; //para obtener el identificador de cada elemento de un objeto del array, para poder llamar a cada elemento a la fila
 
@@ -20,7 +39,8 @@ export class TableComponent{
 
   currentPage = 1;// pagina inicial del paginador
 
-  constructor() {
+
+  constructor(private http: HttpService) {
 
     //para cambiar el valor de la cantidad de items por pagina segun el contenido del select
     this.items.valueChanges.subscribe((newValue: string | null) => {
@@ -59,5 +79,15 @@ export class TableComponent{
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
     }
+  }
+
+  verificar(uwid:string, url:string){
+    this.http.checkWebsite(uwid, url).subscribe(
+      response => {
+        console.log('La etiqueta meta esta en: '+ response.existMeta + ' y la html esta en: '+response.existHTML);
+      },
+      error => {
+        console.error(error);
+      });
   }
 }

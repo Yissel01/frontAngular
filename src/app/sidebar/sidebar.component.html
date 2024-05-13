@@ -22,7 +22,7 @@
       <app-seo-icon  ></app-seo-icon>
     </div>
 
-    <div (click)="web('website')"  class="open-option" [ngClass]="{'active': route ==='website'}" >
+    <div (click)="web('website')"  class="open-option" routerLink="website" routerLinkActive="active" ariaCurrentWhenActive="page">
       <img  class="open-img" src="../../assets/img/website.svg" alt="Sitios web">
       <span class="open-span">Sitios web</span>
     </div>
@@ -34,7 +34,7 @@
       <img title="seowebmasicon" width ='50' height='50' src="../../assets/img/white_seowebmas.png" />
     </div>
 
-    <div (click)="web('website')" class="close-option" routerLink="website" routerLinkActive="active" ariaCurrentWhenActive="page" [ngClass]="{'active': route ==='website'}" >
+    <div (click)="web('website')" class="close-option" routerLink="website" routerLinkActive="active" ariaCurrentWhenActive="page">
         <img  class="close-img" src="../../assets/img/website.svg" alt="Sitios web">
         <p  class="close-p">Sitios web</p>
     </div>
@@ -45,7 +45,7 @@
 
   }
 
-  <p (click)="web('dos')" [ngClass]="{'active': route ==='dos'}" style="padding: 10px;">icono 2</p>
+  <p (click)="web('dos')" [ngClass]="{'active': route ==='dos'}" style="padding: 10px;" routerLink="borrar" routerLinkActive="active" ariaCurrentWhenActive="page">icono 2</p>
   <p (click)="web('tres')" [ngClass]="{'active': route ==='tres'}" style="padding: 10px;">icono 3</p>
 
 </div>

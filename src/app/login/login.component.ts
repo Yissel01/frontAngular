@@ -21,46 +21,50 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent {
 
+  message = ''; //para el mensaje de error
+  error = false;
   login: FormGroup;
 
   constructor(private router: Router, private http: HttpService, formBuilder: FormBuilder) {
-
+    //para captar los datos del formulario reactivo
     this.login = formBuilder.group({
-      username: '', // Campo para el nombre
-      pass: '', // Campo para la dirección
+      username: '',
+      pass: '',
     });
   }
 
-  // La idea es la siguiente
-  // Se crea un token en el back una vez q se inicia sesion
-  // Ese token el back lo envia al front una vez
-  // El front guarda el token en la sesion del navegador o en localStorage
-  // El front envia el token en cada peticion que hace al back
+  /* Se crea un token en el back al iniciar sesion, ese token el back lo envia al front una vez
+     para que este lo guarde en localStorage, luego el front envia el token en cada peticion que hace a la api */
 
 onSubmit() {
-  const formData: User = this.login.value;
-    this.http.verifyUser(formData).subscribe(
-      response => {
-          if(!response.token){
-            console.log('NO HAY RESPONSE.TOKEN. Esta es la response: '+ response.results);
-            this.router.navigate(['/login']);
-          }else{
-            sessionStorage.setItem('auth_token', 'Bearer '+response.token);
-            console.log('Respuesta exitosa, resulsts: '+ response.token);
-            // Acciones adicionales
-
-            if(sessionStorage.getItem('auth_token')){
+  if(this.login.valid){
+    const formData: User = this.login.value;
+      this.http.verifyUser(formData).subscribe(
+        response => {
+            if(!response.valid){
+              this.error = true;
+              this.message = 'Credenciales no válidas';
+              this.router.navigate(['/login']);
+            }else{
+              //Si la verificacion tiene exito se crean variable necesarias
+              sessionStorage.setItem('username', ''+formData.username);
+              sessionStorage.setItem('auth_token', 'Bearer '+response.token);
               // luego redirige a otro componente
-              this.router.navigate(['/home/website']);
+               this.router.navigate(['/home/website']);
             }
+        },
+        error => {
+            console.error('Error al enviar los datos:', error);
+            // Maneja el error
+        }
+    );
 
-          }
-      },
-      error => {
-          console.error('Error al enviar los datos:', error);
-          // Maneja el error
-      }
-  );
+  }else{
+    //Si los campos requeridos vienen vacios
+    this.error = true;
+    this.message = 'Campos requeridos vacíos';
+    this.login.markAllAsTouched();
+  }
 
 
 }

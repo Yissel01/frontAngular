@@ -9,16 +9,27 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style-position: inside;
 }
 
 :root {
 /* color-scheme: ligth dark; */
 }
 
-body {
-  /* min-height: 100vh; */
-}
-
 .borde{
   border: 2px solid black;
 }
+
+.bold{
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+

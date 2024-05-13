@@ -5,7 +5,7 @@ export interface User{
 }
 
 export interface VerifyUser{
-  results: string;
+  valid: string;
   token?: string;
 }
 

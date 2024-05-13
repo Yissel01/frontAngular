@@ -1,0 +1,14 @@
+<div class="desplegable-container">
+  <div (click)="toggleDesplegable()" class="desplegable-header">
+    <span>{{titulo}}</span>
+    <span class="arrow" [ngClass]="{'down': !isExpanded, 'up': isExpanded}"></span>
+  </div>
+  <div class="desplegable-body" [ngClass]="{'open': isExpanded}">
+    <ol>
+      <li>paso 1</li>
+      <li>paso 2</li>
+      <li>paso 3</li>
+      <li>paso 4</li>
+    </ol>
+  </div>
+</div>

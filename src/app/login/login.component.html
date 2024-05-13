@@ -12,11 +12,17 @@
   </div>
 
   <form [formGroup]="login" (ngSubmit)="onSubmit()">
+    @if(error){
+      <div class="error">
+        <p>{{message}}</p>
+      </div>
+    }
+
     <div>
-      <input class="form-input" type="text" formControlName="username" name="username" placeholder="usuario" >
+      <input class="form-input" type="text" formControlName="username" name="username" placeholder="usuario" required>
     </div>
     <div>
-      <input class="form-input" type="password" formControlName="pass" name="pass" placeholder="contraseña" >
+      <input class="form-input" type="password" formControlName="pass" name="pass" placeholder="contraseña" required>
     </div>
     <div >
       <input class="form-submit paddin" type="submit" value="&gt;">
@@ -31,32 +37,4 @@
 </main>
 
 
-<!-- <router-outlet><router-outlet /> -->
 
-<!-- <section class="borde">
-
-  @if(log){
-
-    <p> Hola {{username}} </p>
-
-    <img (click)="greet()" alt="photo" src="https://github.com/lacho06.png" />
-  }@else{
-
-    <p>Inicia sesion</p>
-<button (click)="log = true"> Autenticar </button>
-  }
-
-
-  <ul>
-    @for (dato of variosdatos; track dato.id){
-      <li>
-        {{dato.name}}
-      </li>
-    }
-  </ul>
-
-</section>
-
-
-
-<app-borrar username="{{username}}"></app-borrar> -->

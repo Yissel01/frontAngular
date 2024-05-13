@@ -3,19 +3,48 @@
   color: #777777;
 }
 
-.title{
-  margin: .5rem 0 4rem;
-  border-top: 1px solid #D9DEE4;
-  border-bottom: 1px solid #D9DEE4;
-  padding: 1rem 2rem;
-  color: #707070;
-  font-weight: bold;
+.extra{
   display: flex;
-  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+  padding: .3rem 0;
+}
+
+.help{
+  padding: .3rem .5rem;
+  border: 1px solid #73879C;
+  background-color: #73879C;
+  color: white;
+  display: flex;
   gap: .5rem;
+  align-items: center;
+  width: fit-content;
+}
+
+.help:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #73879C;
+}
+
+/* Para el icono en el span */
+.help::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url('../../assets/img/white-help.svg');
+  background-size: cover;
+}
+
+/* para el icono en el span cuando este el hover  */
+.help:hover::before{
+  background-image: url('../../assets/img/help.svg');
 }
 
 .table-container{
   margin: 0 auto;
   width: 95%;
-  }
+}
+
+
+

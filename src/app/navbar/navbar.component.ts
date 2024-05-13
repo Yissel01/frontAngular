@@ -44,7 +44,7 @@ logout(){
 // código para cerrar sesion...
   sessionStorage.removeItem('auth_token');
   this.router.navigate(['/login']);
-
+  AlertComponent.alert('Sesión cerrada con éxito');
 //.........................................en caso de que haya que ir a la api a algo
     // this.http.logout().subscribe(
     //   resp => {

@@ -13,9 +13,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class SidebarComponent {
 
-route:String = 'website';
+route!:String;
 
 @Input() isOpen : boolean = false;
+
 
 web(route: String){
   this.route = route;

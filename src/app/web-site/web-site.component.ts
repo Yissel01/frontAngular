@@ -3,6 +3,8 @@ import { TableComponent } from '../table/table.component';
 import { HttpService } from '../core/services/http.service';
 import { Observable } from 'rxjs';
 import { WebsiteRow, WebsiteTable } from '../core/interfaces/website';
+import { RouterOutlet,Router, ActivatedRoute, RouterLinkActive, RouterLink } from '@angular/router';
+
 
 
 
@@ -10,13 +12,14 @@ import { WebsiteRow, WebsiteTable } from '../core/interfaces/website';
 @Component({
   selector: 'app-web-site',
   standalone: true,
-  imports: [TableComponent],
+  imports: [TableComponent,RouterOutlet,RouterLink , RouterLinkActive, ],
   templateUrl: './web-site.component.html',
   styleUrl: './web-site.component.css'
 })
 export class WebSiteComponent implements OnInit {
   pageTitle= 'Sitios web';
-  titles = ['#','Sitios web', 'Verificación "HTML"' , 'Verificación "Meta"', 'Acciones'];
+
+  titles = ['#','Sitios web', 'Acciones'];
   //  data = [
   //   { ID: 1, Nombre: 'Juan', Edad: 30 },
   //   { ID: 2, Nombre: 'María', Edad: 25 },
@@ -49,20 +52,24 @@ export class WebSiteComponent implements OnInit {
 
   data!: WebsiteRow[];
 
-  constructor(private http: HttpService){
+  constructor(private http: HttpService, private router: Router, private route: ActivatedRoute){}
 
+
+
+  navigateToHelp() {
+    // Navega relativamente a la ruta activa actual
+    this.router.navigate(['../help'], { relativeTo: this.route });
   }
+
+
 
   ngOnInit(): void {
     this.http.getWebsitesTable().subscribe(
       response => {
-          console.log('Respuesta exitosa:', response.content);
           this.data = response.content;
-          // Acciones adicionales
       },
       error => {
           console.error('Error al enviar los datos:', error);
-          // Maneja el error
       }
   );
   }

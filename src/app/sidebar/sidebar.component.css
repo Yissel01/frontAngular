@@ -6,7 +6,8 @@
   width: 230px;
   background-color:#202A62;
   color: white;
-  /* transition: left 0.3s ease-in-out; */
+  font-size: 12px;
+  /* transition: width 0.3s ease-in-out; */
 }
 
 .open-seo-icon{
@@ -27,7 +28,7 @@
   padding: .8rem;
   margin-top: 1rem;
   display: flex;
-  align-items: start;
+  align-items: center;
   cursor: pointer;
 }
 

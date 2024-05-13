@@ -1,26 +1,13 @@
-<!-- <table id="table_id" class="display">
-
-  <table class="table table-striped" at-table at-paginated at-list="list" at-config="config">
-    <thead></thead>
-    <tbody>
-      <tr>
-        <td at-implicit at-sortable at-attribute="index" width="150" at-initial-sorting="asc"></td>
-        <td at-implicit at-sortable at-attribute="name"  width="250"></td>
-        <td at-implicit at-sortable at-attribute="email"></td>
-      </tr>
-    </tbody>
-  </table>
-
-   <at-pagination at-list="list" at-config="config"></at-pagination> -->
-<!-- </table> -->
 <div class="migas">
   <p>{{pageTitle}}</p>
 </div>
-<div class="title">
-  <img width="20" height="20" src="../../assets/img/menu_.svg" alt="Sitios web">
-  <span>{{pageTitle.toUpperCase()}}</span>
-</div>
+
+
 <div class="table-container">
-  <app-table [colTitles]="titles" [rowContent]="data"/>
+  <div class="extra ">
+    <span class="help" (click)="navigateToHelp()">¿Qué es la verificación de propiedad?</span>
+  </div>
+  <app-table [tableTitle]="pageTitle" [colTitles]="titles" [rowContent]="data"/>
 </div>
+
 

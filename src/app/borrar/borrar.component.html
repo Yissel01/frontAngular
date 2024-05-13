@@ -11,9 +11,46 @@
 
   <p>pep</p>
   <p>borrar works!</p>
+
+  <button (click)="openModal()">Abrir modal</button>
+    <app-modal *ngIf="modalOpen" (close)="closeModal()"></app-modal>
 <!-- </div> -->
 
 <img width="20" height="20" src="../../assets/img/checked.svg" alt="Si">
 <img width="20" height="20" src="../../assets/img/unchecked.svg" alt="No">
 
+<app-colapse [titulo]="html"></app-colapse>
+<app-colapse [titulo]="meta"></app-colapse>
 
+
+<img height="20" width="20" title="ho" [src]="src" (mouseover)="src = '../../assets/img/unchecked.svg'" (mouseout)="src = '../../assets/img/checked.svg'">
+
+<!-- <router-outlet><router-outlet /> -->
+
+<!-- <section class="borde">
+
+  @if(log){
+
+    <p> Hola {{username}} </p>
+
+    <img (click)="greet()" alt="photo" src="https://github.com/lacho06.png" />
+  }@else{
+
+    <p>Inicia sesion</p>
+<button (click)="log = true"> Autenticar </button>
+  }
+
+
+  <ul>
+    @for (dato of variosdatos; track dato.id){
+      <li>
+        {{dato.name}}
+      </li>
+    }
+  </ul>
+
+</section>
+
+
+
+<app-borrar username="{{username}}"></app-borrar> -->

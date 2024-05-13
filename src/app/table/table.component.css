@@ -1,20 +1,56 @@
 *{
-  color: #707070;
+  color: #72879C;
 }
+
+.table-container{
+  background-color: white;
+  border: 1px solid #D9DEE4;
+  display: flex;
+  flex-direction: column;
+}
+
+.items-search{
+  display: flex;
+  margin: 1rem 2rem;
+  justify-content: space-between;
+}
+
+.items-search select, input{
+  height: 2rem;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #CCCCCC;
+}
+
+.items-search select{
+  width: 5rem;
+}
+
+.items-search input{
+  width: 10rem;
+}
+
+.items-search div{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
 table {
   border-collapse: collapse;
-  width:100%;
+  margin: 0 2rem;
 }
 
 th, td {
   padding: 8px;
   text-align: left;
 }
-th {
-  border-bottom: 1.5px solid #333; /* Bordes inferiores más oscuros para los títulos */
+
+th{
+  border-bottom: 2.5px solid #DDDDDD; /* Bordes inferiores más oscuros para los títulos */
 }
 
-tr {
+td {
   border-bottom: 1px solid #ccc; /* Bordes inferiores para las filas */
 }
 
@@ -23,53 +59,118 @@ tr {
   justify-content: end;
   align-items: center;
   gap: 2rem;
-  margin: 1rem 1rem 3rem;
+  margin: .5rem 3rem 3rem;
 }
 
 .pagination div{
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 1rem;
   height: 2rem;
 }
 
-.pagination button , .pagination select{
+.pages{
+  border-radius: .3rem;
+  padding: .5rem;
+  background-color: #DDDDDD;
+}
+
+.pages button{
+  border-radius: .3rem;
+  border: none;
+  cursor: pointer;
+  background-color: #DDDDDD;
+}
+
+.boton{
+  padding: .2rem .5rem;
+  gap: .5rem;
+  cursor: pointer;
+  background-color: #7CB526;
+  border: 1px solid #aaa;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+
+.boton span{
+  color: white;
+}
+
+.title{
+  margin: .5rem 1rem 1rem;
+  border-bottom: 1px solid #D9DEE4;
+  padding: 1rem 0;
+  font-weight: bold;
+  display: flex;
+  gap: .5rem;
+}
+
+
+
+
+
+.verify{
+  padding: .3rem .5rem;
+  border: 1px solid #7CB526;
+  background-color: #7CB526;
+  color: white;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  width: fit-content;
+}
+
+.verify:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #7CB526;
+}
+
+/* Para el icono en el span */
+.verify::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url('../../assets/img/white-verify.svg');
+  background-size: cover;
+}
+
+/* para el icono en el span cuando este el hover  */
+.verify:hover::before{
+  background-image: url('../../assets/img/verify.svg');
+}
+
+
+
+
+/* .pagination button , .pagination select{
   border: none;
   cursor: pointer;
   height: 100%;
   width: 2rem;
   background-color: #fff;
-}
+} */
 
-.pagination button:nth-child(1){
+/* .pagination button:nth-child(1){
   border-radius: .3rem 0  0 .3rem;
 }
 
 .pagination button:nth-child(3){
   border-radius: 0 .3rem .3rem 0;
 
-}
+} */
 
-.pagination select{
+/* .pagination select{
   width: 4rem;
   text-align: center;
-}
+} */
 
 /* Para el 2do div de .pagination y para el select de .pagination */
-.pagination > div:nth-child(2), .pagination select{
+/* .pagination > div:nth-child(2), .pagination select{
   background-color: white;
   border: 1px solid #aaa;
   border-radius: .3rem;
-/* Esta sombra no me convence */
   box-shadow: 0 1px 0 1px #202a62a5;
-  }
-
-
-.boton{
-  padding: .2rem .5rem;
-  width: 5rem;
-  border-radius: .3rem;
-  border: 1px solid #aaa;
-}
-
-
+  } */

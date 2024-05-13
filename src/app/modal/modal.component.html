@@ -1,0 +1,63 @@
+
+<div class="modal-backdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="c-white">Verifica la propiedad</h2>
+      <p class="c-white">{{url}}</p>
+    </div>
+    <div class="modal-body">
+      <!-- <p>id: {{userWebsiteID}}</p> -->
+      <p class="bold" >Método de verificación recomendado</p>
+      <div class="desplegable-container">
+        <div (click)="toggleHTML()" class="desplegable-header ">
+          <span>Archivo HTML</span>
+          <span>Subir un archivo HTML a tu sitio web</span>
+          <span class="arrow" [ngClass]="{'down': !openHTML, 'up': openHTML}"></span>
+        </div>
+        <div class="desplegable-body" [ngClass]="{'open': openHTML}">
+          <ol>
+            <li>
+              Descarga el archivo:
+              <span (click)="downloadHTML()" class="icono-archivo"> {{htmlName}}</span>
+            </li>
+            <li>
+              Subir a: {{url}}
+            </li>
+          </ol>
+          <p>Para mantener la verificación, no elimines el archivo aunque la verificación se haya realizado correctamente.</p>
+          <a href="home/help#property-verification" >Todos los detalles</a>
+        </div>
+      </div>
+
+      <p class="bold" >Otros métodos de verificación</p>
+
+      <div class="desplegable-container">
+        <div (click)="toggleMeta()" class="desplegable-header ">
+          <span>Etiqueta meta</span>
+          <span>Añadir una etiqueta meta a la página principal de tu sitio web</span>
+          <span class="arrow" [ngClass]="{'down': !openMeta, 'up': openMeta}"></span>
+        </div>
+        <div class="desplegable-body" [ngClass]="{'open': openMeta}">
+          <ol>
+            <li>Copia la etiqueta meta que aparece más adelante y pégala en la cabecera de la página principal de tu sitio web.
+              <div class="textarea-container">
+                <textarea title="l" [value]="metaVerification" readonly class="textarea-estilo" rows="1"></textarea>
+                <button class="modal-button" (click)="copy()">Copiar</button>
+              </div>
+            </li>
+
+          </ol>
+          <p>Si quieres que tu verificación siga vigente, no puedes quitar la etiqueta meta aunque la verificación ya se haya completado correctamente.</p>
+          <a href="home/help#property-verification" >Todos los detalles</a>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="modal-footer">
+      <button class="modal-button" (click)="onClose()">Hecho</button>
+    </div>
+  </div>
+</div>
+

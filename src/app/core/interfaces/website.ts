@@ -6,10 +6,19 @@ export interface Website
 export interface WebsiteRow{
   count: number;
   url: string;
-  html: boolean;
-  meta: boolean;
+  id: string;
 }
 
 export interface WebsiteTable{
   content: WebsiteRow[];
+}
+
+export interface WebsiteVerification{
+  htmlCode: string;
+  metaCode: string;
+}
+
+export interface checkWebsite{
+  existMeta: boolean;
+  existHTML: boolean;
 }
