@@ -15,6 +15,7 @@ export class NavbarComponent {
 
 isOpen= false;
 showUserMenu = false;
+username = sessionStorage.getItem('username');
 
 
 constructor(private elRef: ElementRef, private router: Router, private http: HttpService) {}

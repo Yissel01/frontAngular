@@ -44,3 +44,7 @@ a:visited{
   color: #23527C;
 
 }
+
+.no-scroll {
+  overflow: hidden;
+}

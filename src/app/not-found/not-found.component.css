@@ -1,0 +1,24 @@
+.container{
+display: flex;
+/* align-items: center; */
+justify-content: center;
+background-color: #EDEDED;
+height: 100%;
+}
+
+.content{
+  margin-top: 10rem;
+  height: fit-content;
+  font-size: 2rem;
+  color: #72879C;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+button{
+  color: #72879C;
+  margin: 0 auto;
+  padding: 5px;
+}

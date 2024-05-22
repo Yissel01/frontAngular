@@ -26,7 +26,6 @@ export class HttpService {
         'Authorization': token
       });
       return this.http.get<WebsiteTable>(this.url + '/website', {headers});
-      // return this.http.get<WebsiteTable>(this.url + '/website', {params: {token : parame}});
     }
     return this.http.get<WebsiteTable>(this.url + '/website');
   }
@@ -56,7 +55,7 @@ export class HttpService {
         'userWebsiteID': id,
         'Website_url' : url
       });
-      console.log(headers.getAll('userWebsiteID'));
+      // console.log(headers.getAll('userWebsiteID'));
       return this.http.get<checkWebsite> (this.url + '/check_website', {headers});
     }
     return this.http.get<checkWebsite>(this.url + '/website');

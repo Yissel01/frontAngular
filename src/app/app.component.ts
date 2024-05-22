@@ -4,23 +4,17 @@ import { LoginComponent } from './login/login.component';
 import { BorrarComponent } from './borrar/borrar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NgStyle } from '@angular/common';
-import { Meta, Title } from '@angular/platform-browser';
-
-
-
+import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,LoginComponent, RouterLink, RouterLinkActive, BorrarComponent,SidebarComponent,NavbarComponent,NgStyle],
+  imports: [RouterOutlet,LoginComponent, RouterLink, RouterLinkActive, BorrarComponent,SidebarComponent,NavbarComponent,NgStyle,NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-title='';
-
-constructor(private titleService: Title, private metaService: Meta) { }
+title='SEO WebMas: Herramienta para el analisis SEO de sitios web';
 
   ngOnInit() {
     // this.titleService.setTitle('SEO WebMas: Herramienta para el analisis SEO de sitios web');

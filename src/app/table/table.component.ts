@@ -20,6 +20,11 @@ export class TableComponent{
   modalOpen = false;
   id!:string;
   url!:string;
+  verificationMessage!:string;
+  showAlert: boolean = false;
+  isLoading: boolean = false;
+  isMeta: boolean = false;
+  isHTML: boolean = false;
 
   openModal(key:string, url:string) {
     this.id = key;
@@ -82,12 +87,40 @@ export class TableComponent{
   }
 
   verificar(uwid:string, url:string){
+    this.isLoading = true;
+    this.url = url;
     this.http.checkWebsite(uwid, url).subscribe(
       response => {
-        console.log('La etiqueta meta esta en: '+ response.existMeta + ' y la html esta en: '+response.existHTML);
+        // console.log('La etiqueta meta esta en: '+ response.existMeta + ' y la html esta en: '+response.existHTML);
+
+
+        // if(response.existHTML && response.existMeta){
+        //   this.verificationMessage = 'El sitio: '+url+' está verificado mediante archivo HTML y etiqueta meta';
+
+        // }else if(response.existHTML && !response.existMeta){
+        //   this.verificationMessage = 'El sitio: '+url+' está verificado mediante archivo HTML';
+
+        // }else if(!response.existHTML && response.existMeta){
+        //   this.verificationMessage = 'El sitio: '+url+' está verificado etiqueta meta';
+
+        // }else{
+        //   this.verificationMessage = 'El sitio: '+url+' no está verificado';
+        // }
+        this.isMeta = response.existMeta;
+        this.isHTML = response.existHTML;
+        this.showAlert = true;
+        this.isLoading = false;
       },
       error => {
         console.error(error);
       });
-  }
+
+    }
+
+    closeAlert() {
+      this.isMeta = false;
+      this.isHTML = false;
+      this.showAlert = false;
+    }
+
 }

@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 import { HttpService } from '../core/services/http.service';
 import { User } from '../core/interfaces/user';
 import { Observable } from 'rxjs';
+import { AlertComponent } from '../alert/alert.component';
 
 
 
@@ -51,6 +52,7 @@ onSubmit() {
               sessionStorage.setItem('auth_token', 'Bearer '+response.token);
               // luego redirige a otro componente
                this.router.navigate(['/home/website']);
+               AlertComponent.alert('Sesión iniciada con éxito');
             }
         },
         error => {
