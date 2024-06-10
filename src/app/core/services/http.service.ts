@@ -55,16 +55,15 @@ export class HttpService {
         'userWebsiteID': id,
         'Website_url' : url
       });
-      // console.log(headers.getAll('userWebsiteID'));
       return this.http.get<checkWebsite> (this.url + '/check_website', {headers});
     }
     return this.http.get<checkWebsite>(this.url + '/website');
   }
 
-
+//de momento en desusuo
   logout(): Observable<Results>{
     sessionStorage.removeItem('auth_token');
-    // sessionStorage.clear();
+    sessionStorage.clear();
     return this.http.get<Results>(this.url + '/logout');
   }
 }

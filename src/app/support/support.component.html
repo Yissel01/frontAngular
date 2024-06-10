@@ -16,41 +16,83 @@
         </a>
       </li>
       <li>
-        <a (click)="scrollToElement('de-prueba')">
-          Otra pregunta
+        <a (click)="scrollToElement('expiration-time')">
+          ¿Cuánto tiempo es válida la verificación?
+        </a>
+      </li>
+      <li>
+        <a (click)="scrollToElement('verification-metod')">
+          ¿Qué métodos de verificación tiene Seo WebMas?
+        </a>
+      </li>
+      <li>
+        <a (click)="scrollToElement('meta')">
+          ¿Cómo verfico mi sitio mediante etiqueta meta?
+        </a>
+      </li>
+      <li>
+        <a (click)="scrollToElement('HTML')">
+          ¿Cómo verfico mi sitio mediante subida archivo HTML?
         </a>
       </li>
     </ul>
     <h2 #scroll id="property-verification" class="subtitle bold">¿Qué es la verificación de propiedad?</h2>
     <p>La verificación de propiedad de un sitio web es un proceso que demuestra que eres el propietario legítimo de un sitio web.
-      Al verificar la propiedad de un sitio web le estas indicando a Seo Webmas que eres su propietario, obteniendo asi acceso
+      Al verificar la propiedad de un sitio web le estas indicando a Seo WebMas que eres su propietario, obteniendo asi acceso
       a datos privados e información sencible de Seo Webmas sobre el sitio web verificado.Los propietarios de sitios web también
       pueden realizar acciones que pueden afectar a la presencia y al comportamiento de un sitio. Por este motivo,
-      queremos asegurarnos de que solo los propietarios reales de sitios web tengan permisos de propietario en Seo Webmas.
+      queremos asegurarnos de que solo los propietarios reales de sitios web tengan permisos de propietario en Seo WebMas.
     </p>
 
-    <h2 #scroll id="de-prueba" class="subtitle bold">Otra pregunta</h2>
+    <h2 #scroll id="expiration-time" class="subtitle bold">¿Cuánto tiempo es válida la verificación?</h2>
     <p>
-      texto random  texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random
-
-    </p><p>
-      texto random  texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random
-
-    </p><p>
-      texto random  texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random
-
-    </p><p>
-      texto random  texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random
-
-    </p><p>
-      texto random  texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random
-
-    </p><p>
-      texto random  texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random
-
-    </p><p>
-      texto random  texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random texto random
-
+      La verificación es válida mientras la suscripción del sitio web esté vigente y mientras Seo WebMas pueda confirmar
+      la presencia y validez del token de verificación ya sea mediante un método de verificación u otro
     </p>
+
+    <h2 #scroll id="verification-metod" class="subtitle bold">¿Qué métodos de verificación tiene Seo WebMas?</h2>
+    <p>
+      Seo WebMas cuenta con dos métodos de verificación: verificación mediante etiqueta meta y verificación mediante
+      subida de archivo HTML.
+      La verificación mediante <b><a (click)="scrollToElement('meta')">etiqueta meta</a></b> es un método sencillo que requiere la capacidad de
+      editar el código fuente HTML de la página principal de tu sitio.
+      Por otra parte, para la verificación de propiedad mediante <b><a (click)="scrollToElement('HTML')">subida de archivo HTML</a></b>
+      debes subir un archivo y publicarlo en tu sitio a través de una URL concreta.
+    </p>
+
+    <h2 #scroll id="meta" class="subtitle bold">¿Cómo verfico mi sitio mediante etiqueta meta?</h2>
+    <p>
+      Verifica que eres el propietario de un sitio añadiendo una etiqueta  &lt;meta&gt; al código HTML de una página concreta.
+      Seo WebMas comprobará que la etiqueta meta esté presente en esa página. Esta etiqueta está vinculada a un usuario concreto.
+    </p>
+    <p>
+      <b>Requisitos:</b>
+    </p>
+      <ul>
+        <li>
+          En la página principal no se puede requerir la autenticación. Los usuarios deben poder acceder
+          a la página principal del sitio sin tener que iniciar sesión.
+        </li>
+        <li>
+          Debes poder editar el código fuente HTML de la página principal del sitio directamente.
+          En concreto, debes poder insertar una etiqueta en la etiqueta  &lt;head&gt; de tu página principal.
+        </li>
+      </ul>
+    <p>
+      <b>Pasos</b>
+    </p>
+      <ol>
+        <li>
+          Selecciona el método de etiqueta meta en la <a class="bold" href="home/website">página de sitios web</a>
+        </li>
+        <li>
+          Copia la etiqueta ...
+        </li>
+      </ol>
+
+    <h2 #scroll id="HTML" class="subtitle bold">¿Cómo verfico mi sitio mediante subida de archivo HTML?</h2>
+    <p>
+
+    <!-- </p> -->
   </div>
 </div>

@@ -6,19 +6,18 @@
       <p class="c-white">{{url}}</p>
     </div>
     <div class="modal-body">
-      <!-- <p>id: {{userWebsiteID}}</p> -->
       <p class="bold" >Método de verificación recomendado</p>
-      <div class="desplegable-container">
-        <div (click)="toggleHTML()" class="desplegable-header ">
+      <div class="desplegable-container"> <!-- Archivo HTML -->
+        <div (click)="toggleHTML()" class="desplegable-header "> <!-- Lo que se ve antes de desplegarse -->
           <span>Archivo HTML</span>
           <span>Subir un archivo HTML a tu sitio web</span>
           <span class="arrow" [ngClass]="{'down': !openHTML, 'up': openHTML}"></span>
         </div>
-        <div class="desplegable-body" [ngClass]="{'open': openHTML}">
+        <div class="desplegable-body" [ngClass]="{'open': openHTML}"> <!-- Contenido ya desplegada -->
           <ol>
             <li>
               Descarga el archivo:
-              <span (click)="downloadHTML()" class="icono-archivo"> {{htmlName}}</span>
+              <span (click)="downloadHTML()" class="icono-archivo"> {{htmlName}}</span> <!-- al cliclearlo permite descargar el archivo de verificacion-->
             </li>
             <li>
               Subir a: {{url}}
@@ -31,18 +30,18 @@
 
       <p class="bold" >Otros métodos de verificación</p>
 
-      <div class="desplegable-container">
-        <div (click)="toggleMeta()" class="desplegable-header ">
+      <div class="desplegable-container"> <!-- Etiqueta meta -->
+        <div (click)="toggleMeta()" class="desplegable-header "> <!-- Lo que se ve antes de desplegarse -->
           <span>Etiqueta meta</span>
           <span>Añadir una etiqueta meta a la página principal de tu sitio web</span>
           <span class="arrow" [ngClass]="{'down': !openMeta, 'up': openMeta}"></span>
         </div>
-        <div class="desplegable-body" [ngClass]="{'open': openMeta}">
+        <div class="desplegable-body" [ngClass]="{'open': openMeta}"> <!-- Contenido ya desplegada -->
           <ol>
             <li>Copia la etiqueta meta que aparece más adelante y pégala en la cabecera de la página principal de tu sitio web.
               <div class="textarea-container">
                 <textarea title="metaVerification" [value]="metaVerification" readonly class="textarea-estilo" rows="1"></textarea>
-                <button class="modal-button" (click)="copy()">Copiar</button>
+                <button class="modal-button" (click)="copy()">Copiar</button> <!-- al cliclearlo permite copiar la etiqueta de verificacion al portapapeles-->
               </div>
             </li>
 
@@ -55,8 +54,8 @@
 
 
     </div>
-    <div class="modal-footer">
-      <button class="modal-button" (click)="onClose()">Hecho</button>
+    <div class="modal-footer"> <!-- Botones del modal -->
+      <button class="modal-button" (click)="onClose()">Hecho</button> <!-- Cierra el modal -->
     </div>
   </div>
 </div>

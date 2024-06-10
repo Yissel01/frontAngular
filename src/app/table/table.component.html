@@ -30,121 +30,83 @@
     </thead>
     <!-- contenido -->
     <tbody>
-      <!-- <tr *ngFor="let fila of filas"> -->
-        <!-- <tr *ngFor="let row of currentRows"> -->
-        <!-- <td>{{ row.ID }}</td>
-      <td>{{ row.Nombre }}</td>
-      <td>{{ row.Edad }}</td> -->
-        <!-- <td *ngFor="let key of objectKeys(row)">{{ row[key] }}</td> -->
-        <ng-container *ngIf="currentRows.length > 0; else emptyRows">
+      <ng-container *ngIf="currentRows.length > 0; else emptyRows">
         <tr *ngFor="let row of currentRows">
           <td *ngFor="let key of objectKeys(row)">
-            <ng-container  *ngIf="key === 'html' || key === 'meta'; else notElemento2">
-              <img  style="display: block; margin-left: 2rem; margin-right: auto;" width="20" height="20" *ngIf="row[key] === 1" src="../../assets/img/checked.svg" alt="Imagen para valor 1">
-              <img style="display: block; margin-left: 2rem; margin-right: auto;" width="20" height="20" *ngIf="row[key] === 0" src="../../assets/img/unchecked.svg" alt="Imagen para valor 0">
-            </ng-container>
-            <ng-template #notElemento2>
-              <ng-container *ngIf="key !== 'id'">{{ row[key] }}</ng-container>
-            </ng-template>
-            <ng-container *ngIf="key === 'id' " >
+            <ng-container *ngIf="key !== 'id'; else buttons ">{{ row[key] }}</ng-container>
+            <ng-template #buttons>
               <div class="action-buttons-container">
                 <button class="verify action-buttons" (click)="openModal(row[key],row['url'])" >Verificar propiedad</button>
                 <button class="show-more action-buttons" (click)="verificar(row[key],row['url'])" >Ver más</button>
               </div>
-            </ng-container>
-
+            </ng-template>
           </td>
-          <!-- <td> -->
-
-
-          <!-- <div class="boton" (click)="openModal()">
-            <img width="20" height="20" src="../../assets/img/white-verify.svg" alt="Verificar propiedad"/>
-            <span class>Verificar propiedad</span>
-          </div> -->
-          <!-- <button class="borde boton">Botón 2</button>
-            <button class="borde boton">Botón 3</button> -->
-          <!-- </td> -->
         </tr>
-    </ng-container>
-    <ng-template #emptyRows>
-      <tr>
-        <td style="text-align: center;" [attr.colspan]="colTitles?.length" >No hay sitios web para mostrar</td>
-      </tr>
-    </ng-template>
-  </tbody>
-</table>
+      </ng-container>
+      <ng-template #emptyRows>
+        <tr>
+          <td style="text-align: center;" [attr.colspan]="colTitles?.length" >No hay sitios web para mostrar</td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
 
-<app-modal [userWebsiteID]="id" [url]="url" *ngIf="modalOpen"  (close)="closeModal()"></app-modal>
-
-<!-- <div class="loading-indicator" *ngIf="isLoading">
-  Verificando...
-</div> -->
-
-<!-- En tu archivo HTML -->
-<div class="verificando-indicador" *ngIf="isLoading">
-  Verificando<span class="puntos">...</span>
-</div>
-
-
-<div class="background" *ngIf="showAlert">
-<div class="alert-verificationDetails" >
-  <div class = 'alert-header'>
-    <p class="alerta-titulo c-white bold">Detalles de verificación</p>
-    <p class="c-white">{{url}}</p>
-  </div>
-  <div class="alert-body">
-    <div class="alert-body-content">
-    @if(isMeta || isHTML ){
-      <p class="bold">La propiedad del sitio está verificada mediante:</p>
-        <div class="verifcation-opction">
-          <p>- Meta: </p>
-          @if(isMeta){
-            <img width="20" height="20" title="meta" src="../../assets/img/checked.svg" />
-          }@else{
-            <img width="20" height="20" title="meta" src="../../assets/img/unchecked.svg" />
-          }
-        </div>
-
-        <div class="verifcation-opction">
-          <p>- HTML: </p>
-          @if(isHTML){
-            <img width="20" height="20" title="meta" src="../../assets/img/checked.svg" />
-          }@else{
-            <img width="20" height="20" title="meta" src="../../assets/img/unchecked.svg" />
-          }
-        </div>
-      }@else {
-        <div class="verifcation-opction">
-
-          <img width="20" height="20" title="meta" src="../../assets/img/unchecked.svg" />
-          <span> La propiedad de este sitio no se encuentra verificada </span>
-        </div>
-      }
-    </div>
-    <button class="alert-button" (click)="closeAlert()">Hecho</button>
-  </div>
-</div>
-</div>
-
-
-
-<!--------------------- Paginacion de la tabla ------------------->
+  <!--------------------- Paginacion de la tabla ------------------->
   <div class="pagination">
-    <!-- <div >
-      <label for="items">Elementos por página:</label>
-      <select id="items" name="items" [formControl]="items">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select>
-    </div> -->
     <div class="pages">
       <button (click)="prevPage()">Anterior <!--&laquo;--></button>
       <span> {{ rowContent && rowContent.length === 0 ? 0 : currentPage }} /{{ totalPages }}</span>
       <button (click)="nextPage()"> Siguiente<!--&raquo;--></button>
     </div>
   </div>
-  <!-- <meta name="google-site-verification" content="NjUcoTNhYl7uX1mE3rSh7cblfBX1v3gszS0spShRhJs" /> -->
-<!--                                                  a841fdfe2a73e8c0e134a727cf4ab2fa091e5bfe8c50da11acbbe1ca50a0b207992a40d0c5b5d2a858e14cc2f2938baf9bfb1d69645a0d73a6e87ff7cbe71370 fb1e634b3828794ac454eb841270cab47370f797 fecbbdd84739daedd53cbac920116e94d39ce5ad376fa9e1e9de0b0741dbb92b -->
+
+  <!-- Modal de verificacion del sitio donde se le da al usuario la etiqueta meta o el archivo html -->
+  <app-modal [userWebsiteID]="id" [url]="url" *ngIf="modalOpen"  (close)="closeModal()"></app-modal>
+
+  <!-- Modal verifica la propiedad y dice si esta verificado por etiqueta meta, archivo html, ambos o ninguno -->
+  <div class="background" *ngIf="showAlert">
+    <div class="alert-verificationDetails" >
+      <div class = 'alert-header'>
+        <p class="alerta-titulo c-white bold">Detalles de verificación</p>
+        <p class="c-white">{{url}}</p>
+      </div>
+      <div class="alert-body">
+        <div class="alert-body-content">
+          @if(isMeta || isHTML ){
+            <p class="bold">La propiedad del sitio está verificada mediante:</p>
+            <div class="verification-option">
+              <p>- Meta: </p>
+              @if(isMeta){
+                <img width="20" height="20" title="meta" src="../../assets/img/checked.svg" />
+              }@else{
+                <img width="20" height="20" title="meta" src="../../assets/img/unchecked.svg" />
+              }
+            </div>
+            <div class="verification-option">
+              <p>- HTML: </p>
+              @if(isHTML){
+                <img width="20" height="20" title="meta" src="../../assets/img/checked.svg" />
+              }@else{
+                <img width="20" height="20" title="meta" src="../../assets/img/unchecked.svg" />
+              }
+            </div>
+          }@else {
+            <div class="verification-option">
+              <img width="20" height="20" title="meta" src="../../assets/img/unchecked.svg" />
+              <span> La propiedad de este sitio no se encuentra verificada </span>
+            </div>
+          }
+        </div>
+        <button class="alert-button" (click)="closeAlert()">Hecho</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- mensaje de carga que indica que se esta verificando la propiedad -->
+  <div class="verificando-indicador" *ngIf="isLoading">
+    Verificando<span class="puntos">...</span>
+  </div>
+
 </div>
+
 

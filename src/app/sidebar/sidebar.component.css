@@ -59,8 +59,7 @@
   margin-top: 0;
 }
 
-.active
-{
+.active{
   background-color: #2B356A;
   border-right: 4px #FF9E12 solid;
 }

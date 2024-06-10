@@ -20,6 +20,7 @@ import { AlertComponent } from '../alert/alert.component';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
 
   message = ''; //para el mensaje de error
@@ -37,40 +38,35 @@ export class LoginComponent {
   /* Se crea un token en el back al iniciar sesion, ese token el back lo envia al front una vez
      para que este lo guarde en localStorage, luego el front envia el token en cada peticion que hace a la api */
 
-onSubmit() {
-  if(this.login.valid){
-    const formData: User = this.login.value;
+  onSubmit() {
+    if(this.login.valid){
+      const formData: User = this.login.value;
       this.http.verifyUser(formData).subscribe(
         response => {
-            if(!response.valid){
-              this.error = true;
-              this.message = 'Credenciales no válidas';
-              this.router.navigate(['/login']);
-            }else{
-              //Si la verificacion tiene exito se crean variable necesarias
-              sessionStorage.setItem('username', ''+formData.username);
-              sessionStorage.setItem('auth_token', 'Bearer '+response.token);
-              // luego redirige a otro componente
-               this.router.navigate(['/home/website']);
-               AlertComponent.alert('Sesión iniciada con éxito');
-            }
+          if(!response.valid){
+            this.error = true;
+            this.message = 'Credenciales no válidas';
+            this.router.navigate(['/login']);
+          }else{
+            //Si la verificacion tiene exito se crean variable necesarias
+            sessionStorage.setItem('username', ''+formData.username);
+            sessionStorage.setItem('auth_token', 'Bearer '+response.token);
+            // luego redirige a otro componente
+            this.router.navigate(['/home/website']);
+            AlertComponent.alert('Sesión iniciada con éxito');
+          }
         },
         error => {
             console.error('Error al enviar los datos:', error);
-            // Maneja el error
         }
-    );
+      );
 
-  }else{
-    //Si los campos requeridos vienen vacios
-    this.error = true;
-    this.message = 'Campos requeridos vacíos';
-    this.login.markAllAsTouched();
+    }else{
+      //Si los campos requeridos vienen vacios
+      this.error = true;
+      this.message = 'Campos requeridos vacíos';
+      this.login.markAllAsTouched();
+    }
   }
-
-
-}
-
-
 
 }

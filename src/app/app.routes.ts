@@ -5,7 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { WebSiteComponent } from './web-site/web-site.component';
 import { authGuard } from './core/guards/auth.guard';
 import { ModalComponent } from './modal/modal.component';
-import { ColapseComponent } from './colapse/colapse.component';
 import { SupportComponent } from './support/support.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -13,14 +12,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent},
-  { path: 'borrar', component: BorrarComponent },
-  { path: 'modal', component: ModalComponent },
-  { path: 'co', component: ColapseComponent },
   { path: 'home', component: HomeComponent, canActivate: [authGuard], children:[
     { path: '', redirectTo: 'website', pathMatch: 'full' }, //para que cuando se escriba la ruta home sola vaya por defecto a website
     { path: 'website', component: WebSiteComponent},
     { path: 'help', component: SupportComponent},
-    { path: 'borrar', component: BorrarComponent },
   ]},
   { path: '' , redirectTo:'login', pathMatch: 'full'},
   { path: '**' , component: NotFoundComponent }

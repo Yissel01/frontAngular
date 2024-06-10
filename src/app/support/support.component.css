@@ -45,6 +45,10 @@ a:hover{
   color: #202A62;
 }
 
+a{
+  text-decoration: none;
+}
+
 p{
   padding: .5rem 0 ;
 }

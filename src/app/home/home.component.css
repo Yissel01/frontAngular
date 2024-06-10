@@ -1,12 +1,8 @@
-
-
 .body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
-
 
 nav {
 border-bottom: 1px #D9DEE4 solid;
@@ -24,9 +20,7 @@ section {
   background-color: #F7F7F7;
 }
 
-
 footer{
-  /* float: end; */
   text-align: end;
   color: #73879C;
 }

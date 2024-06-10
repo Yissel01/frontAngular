@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output} from '@angular/core';
 import { SeoIconComponent } from '../seo-icon/seo-icon.component';
 import { ModalComponent } from '../modal/modal.component';
-import { ColapseComponent } from '../colapse/colapse.component';
 
 @Component({
   selector: 'app-borrar',
   standalone: true,
-  imports: [CommonModule,SeoIconComponent,ModalComponent, ColapseComponent],
+  imports: [CommonModule,SeoIconComponent,ModalComponent],
   templateUrl: './borrar.component.html',
   styleUrl: './borrar.component.css'
 })

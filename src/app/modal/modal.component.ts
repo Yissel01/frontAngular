@@ -16,25 +16,27 @@ import { HttpService } from '../core/services/http.service';
 export class ModalComponent implements OnInit{
   //cosas del modal
   @Output() close = new EventEmitter<void>();
-  @Input() userWebsiteID!:string;
-  @Input() url!:string;
+  @Input() userWebsiteID!:string; //identifica a que sitio web con cual usuario se va a verificar
+  @Input() url!:string; //url del sitio para mostrarlo en el modal
 
   constructor(private router: Router, private http: HttpService) {}
 
   ngOnInit(): void {
+    // al abrir el modal se hace una peticion a la api para obtener los codigos para el archivo html
+    // y la etiqueta meta correspondientes al sitio con el usuario, para que al cargar el modal
+    // ya este disponible esta informacion y se pueda descargar o copiar
     this.http.getWebsiteVerification(this.userWebsiteID).subscribe(
       response => {
-        console.log(response)
         this.htmlContent = response.htmlCode;
         this.htmlName = 'seowebmas'+this.htmlContent+'.html'
         this.metaVerification ='<meta name="seowebmas-verification" content="'+ response.metaCode+'">';
       },
       error => {
           console.error('Error al enviar los datos:', error);
-          // Maneja el error
       });
   }
 
+  //cierra el modal
   onClose() {
     this.close.emit();
   }
@@ -42,15 +44,15 @@ export class ModalComponent implements OnInit{
 
   //cosas del desplegable
 
-  titulo = 'Haz clic para expandir';
-
-
+  //define si estan abiertos o cerrados los desplegables
   openHTML = false;
   openMeta = false;
+  //contenido de las verificaciones definidos en el metodo ngOnInit
   htmlContent!:string;
   htmlName!:string;
   metaVerification!:string;
 
+  //metodos de abrir y cerrar los desplegables
   toggleHTML() {
     this.openHTML = !this.openHTML;
   }
@@ -59,13 +61,8 @@ export class ModalComponent implements OnInit{
     this.openMeta = !this.openMeta;
   }
 
-  navigateToHelp(){
-    this.router.navigate(['home/help'], { fragment: 'de-prueba' });
-  }
-
+  //descarga el html de verificacion
   downloadHTML(){
-    const htmlContent = 'holis desde el archivo descargado';//contenido del html
-
     // Crea un Blob con el contenido HTML
     // Un Blob representa datos que no necesariamente están en un formato nativo de JavaScript
     const blob = new Blob(['seowebmas-verification: seowebmas'+ this.htmlContent], { type: 'text/html' });
@@ -81,9 +78,9 @@ export class ModalComponent implements OnInit{
     // Limpia la URL y remueve el enlace temporal
     window.URL.revokeObjectURL(url);
     document.body.removeChild(a);
-
   }
 
+  //copia al portapapeles la etiqueta meta de verificacion
   copy(){
     const aux = document.createElement('input');
     aux.setAttribute('value', this.metaVerification);
